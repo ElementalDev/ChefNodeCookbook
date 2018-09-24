@@ -20,3 +20,7 @@ end
 service "nginx" do
   action [:enable, :start]
 end
+
+template "/etc/nginx/sites-available/proxy.conf" do
+  action :create
+end

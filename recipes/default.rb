@@ -4,6 +4,13 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
+# Include the nodejs recipe
+include_recipe("nodejs")
+
+nodejs_npm "pm2" do
+  action [:install]
+end
+
 # Installs nginx
 package "nginx" do
   action [:install]

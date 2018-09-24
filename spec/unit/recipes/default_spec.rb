@@ -34,5 +34,13 @@ describe 'node::default' do
     it "should create a proxy.conf template in /etc/nginx/sites-available" do
      expect(chef_run).to create_template("/etc/nginx/sites-available/proxy.conf")
     end
+
+    it "should create a symlink for proxy.conf from sites-available to sites-enabled" do
+      expect(chef_run).to create_link("/etc/nginx/sites-enabled/proxy.conf").with_link_type(:symbolic)
+    end
+
+    it "should delete the symlink from the default.conf in sites enabled" do
+      expect(chef_run).to delete_link("/etc/nginx/sites-enabled/default")
+    end
   end
 end

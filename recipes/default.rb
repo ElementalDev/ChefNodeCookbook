@@ -4,7 +4,7 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-apt_update "update_sources" do
+apt_update "update" do
   action :update
 end
 
